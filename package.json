@@ -1,0 +1,24 @@
+{
+  "name": "DATOS_INPEC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorCobo2/DATOS_INPEC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorCobo2/DATOS_INPEC/issues"
+  },
+  "homepage": "https://github.com/VictorCobo2/DATOS_INPEC#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.1"
+  }
+}

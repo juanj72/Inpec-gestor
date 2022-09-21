@@ -1,0 +1,53 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+
+<div style="padding: 15px">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1 class="text-titles">
+        <i class="zmdi zmdi-face zmdi-hc-fw"></i>Información PPL's
+      </h1>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table id="tabla" class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="text-center">ID</th>
+          <th scope="text-center">NUI PPL</th>
+          <th scope="text-center">Nombre PPL</th>
+          <th scope="text-center">Documento PPL</th>
+          <th scope="text-center">Edad</th>
+          <th scope="text-center">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for PPL in data%}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{PPL.nui}}</td>
+          <td>{{PPL.nombre}}</td>
+          <td>{{PPL.documento}}</td>
+          <td>{{PPL.edad}}</td>
+          <td>
+            <a
+              href="{% url 'info_ppl' nui=PPL.nui %}"
+              type="button"
+              class="btn btn-outline-primary"
+            >
+              Más Info
+            </a>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %} {% block jquery %}
+<script>
+  $(document).ready(function () {
+    $("#tabla").DataTable();
+  });
+</script>
+{% endblock jquery %}

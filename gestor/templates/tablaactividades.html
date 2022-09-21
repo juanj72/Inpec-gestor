@@ -1,0 +1,106 @@
+{% extends 'index.html' %} {% block content %}
+<div style="padding: 25px">
+  <h1 class="fs-1 text-center px-2">
+    Historial de actividades
+    <button
+      type="button"
+      style="color: green; background: none; border: none; outline: none"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        fill="currentColor"
+        class="bi bi-cloud-download"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"
+        />
+        <path
+          d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"
+        />
+      </svg>
+    </button>
+  </h1>
+</div>
+<div class="container">
+  <div class="container">
+    <form class="form-outline col-xs-4" action="/mostrarPPLxPlanilla/">
+      <input
+        type="search"
+        id="form1"
+        class="form-control"
+        placeholder="Ingrese NUI"
+        aria-label="Search"
+        id="nui"
+        name="nui"
+      />
+      <button type="submit" class="btn btn-dark text-light">buscar</button>
+    </form>
+  </div>
+  <div class="content-box p-4">
+    {% if error %}
+    <section id="error">
+      <div class="card">
+        <h1>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="80"
+            fill="currentColor"
+            class="bi bi-exclamation-diamond-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          404
+        </h1>
+        <p>Error - No existe el <strong>NUI</strong> ingresado</p>
+      </div>
+    </section>
+    {% else %}
+    <div class="page-header">
+      <h1 class="text-titles">
+        {{dato_personal.nui}} - {{dato_personal.nombre_ppl}}
+      </h1>
+    </div>
+    {% if estado %}
+    <section id="cd-timeline" class="cd-container">
+      {% for actividad in data%}
+      <div class="cd-timeline-block">
+        <div class="cd-timeline-img">
+          <img src="../static/assets/img/logo.png" alt="user-picture" />
+        </div>
+        <div class="cd-timeline-content">
+          <h4 class="text-center text-titles">{{actividad.actividad}}</h4>
+          <p class="text-center">
+            Fecha Inicio: <em>{{actividad.fecha_inicio}}</em> &nbsp;&nbsp;&nbsp;
+          </p>
+          <span class="cd-date"
+            ><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>Fecha Final:
+            {{actividad.fecha_final}}</span
+          >
+        </div>
+      </div>
+      {%endfor%}
+    </section>
+    {% else %}
+    <div class="card">
+      <h5 class="card-header">
+        <strong>NO TIENE HISTORIAL ACTIVIDADES</strong>
+      </h5>
+      <div class="card-body">
+        <p class="card-text">
+          El PPL <strong>{{dato_personal.nombre_ppl}}</strong> con el NUI
+          <strong>{{dato_personal.nui}}</strong>, no ha tenido asignadas
+          actividades
+        </p>
+      </div>
+    </div>
+    {% endif %} {% endif %}
+  </div>
+  {% endblock %}
+</div>

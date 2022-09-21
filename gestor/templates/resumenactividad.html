@@ -1,0 +1,89 @@
+{% extends 'index.html' %} {% block content %}
+<div style="padding: 25px" >
+  <h1 class="fs-1 text-center px-2">
+    Resumen Actividades
+    <button
+      type="button"
+      style="color: green; background: none; border: none; outline: none"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        fill="currentColor"
+        class="bi bi-cloud-download"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"
+        />
+        <path
+          d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"
+        />
+      </svg>
+    </button>
+  </h1>
+  <div class='table-responsive p-4 border card border border-dark '>
+    {% for actividad in data %}
+    <h1 class="p-4 "> Patio: {{actividad.patio}} </h1>
+    <table class="table table-hover text-center border border-dark  ">
+      <thead class="thead-dark "
+        <tr>
+          <th class="border border-dark" scope="text-center">Peluqueria</th>
+          <th class="border border-dark"scope="text-center">Reciclaje</th>
+          <th class="border border-dark"scope="text-center">Aseo</th>
+          <th class="border border-dark"scope="text-center">Cocina</th>
+          <th class="border border-dark"scope="text-center">Estudio 1</th>
+          <th class="border border-dark"scope="text-center">Auxiliar</th>
+          <th class="border border-dark"scope="text-center">Aprendizaje 1</th>
+          <th class="border border-dark"scope="text-center">Embolador</th>
+          <th class="border border-dark"scope="text-center">Marroquineria</th>
+          <th class="border border-dark"scope="text-center">Lavanderia</th>
+          <th class="border border-dark"scope="text-center">Guadaña</th>
+          <th class="border border-dark"scope="text-center">Panadero</th>
+          <th class="border border-dark"scope="text-center">Tejer</th>
+          <th class="border border-dark"scope="text-center">Estudio 2</th>
+          <th class="border border-dark"scope="text-center">Pintura</th>
+          <th class="border border-dark"scope="text-center">Aprendizaje 2</th>
+          <th class="border border-dark"scope="text-center">Artesanias</th>
+          <th class="border border-dark"scope="text-center">Estudio 3</th>
+          <th class="border border-dark"scope="text-center">Aprendizaje 3</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-dark">{{actividad.Peluqueria}}</td>
+          <td class="border border-dark">{{actividad.Reciclaje}}</td>
+          <td class="border border-dark">{{actividad.Aseo}}</td>
+          <td class="border border-dark">{{actividad.Cocina}}</td>
+          <td class="border border-dark">{{actividad.Aprendizaje1}}</td>
+          <td class="border border-dark">{{actividad.Auxiliar}}</td>
+          <td class="border border-dark">{{actividad.Estudio1}}</td>
+          <td class="border border-dark">{{actividad.Embolador}}</td>
+          <td class="border border-dark">{{actividad.Marroquineria}}</td>
+          <td class="border border-dark">{{actividad.Lavanderia}}</td>
+          <td class="border border-dark">{{actividad.Guadaña}}</td>
+          <td class="border border-dark">{{actividad.Panadero}}</td>
+          <td class="border border-dark">{{actividad.Tejer}}</td>
+          <td class="border border-dark">{{actividad.Estudio2}}</td>
+          <td class="border border-dark">{{actividad.Pintura}}</td>
+          <td class="border border-dark">{{actividad.Aprendizaje2}}</td>
+          <td class="border border-dark">{{actividad.Artesanias}}</td>
+          <td class="border border-dark">{{actividad.Estudio3}}</td>
+          <td class="border border-dark">{{actividad.Aprendizaje3}}</td>
+        </tr>
+      </tbody>
+    </table >
+    <h2 class="p-4 " > Total: {{actividad.total}} </h2>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+{% block jquery %}
+  <script>
+    $(document).ready(function () {
+      $("#tabla").DataTable();
+    });
+  </script>
+  {% endblock jquery %}

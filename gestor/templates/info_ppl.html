@@ -1,0 +1,174 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/img/logo.png' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Info PPL</title>
+  </head>
+  <body>
+    <section class="modal">
+      <div class="modal-container">
+        <div style="padding: 25px">
+          {% for ppl in data %}
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">NUI:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.nui}}"
+                readonly
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">TD</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.td}}"
+                readonly
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefaultUsername">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.nombre}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">Documento:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.documento}}"
+                readonly
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">Edad</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.edad}}"
+                readonly
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefaultUsername">Fase de Tratamiento</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.fase_tratamiento}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="validationDefault02">Actividad Actual:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.nombre_actividad}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="validationDefault02">Patio:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.patio}}"
+                readonly
+              />
+            </div>
+            <div class="col">
+              <label for="validationDefault02">Piso</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.piso}}"
+                readonly
+              />
+            </div>
+            <div class="col">
+              <label for="validationDefaultUsername">Pasillo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.pasillo}}"
+                readonly
+              />
+            </div>
+            <div class="col">
+              <label for="validationDefaultUsername">Celda</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefault02"
+                placeholder="Last name"
+                value="{{ppl.celda}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="pt-4">
+            <a class="btn btn-light" href="{% url 'mostrarppl' %}"
+              >Volver a PPLs</a
+            >
+            <a
+              class="btn btn-success text-light"
+              href="{% url 'vista_asignar' nui=ppl.nui %}"
+              >Asignar Actividad</a
+            >
+          </div>
+          {% endfor %}
+        </div>
+        <a href="{% url 'mostrarppl' %}" class="close">&times;</a>
+      </div>
+    </section>
+  </body>
+</html>
