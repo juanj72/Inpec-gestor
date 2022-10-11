@@ -25,7 +25,7 @@ SECRET_KEY = 'f$k)8^^_1$imc_3o+odt7&w#bq*u&6q57bc44+h6*c%&(r8n8m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['intento36.azurewebsites.net']
 
 
 # Application definition
@@ -81,9 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'inpec_gestor',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'USER': 'electiva2db',
+        'PASSWORD': 'Azure2022A*',
+        'HOST': 'servidorelectiva2jara.mysql.database.azure.com',
         'PORT': '3306'
     }
 }
