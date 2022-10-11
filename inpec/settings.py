@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['intento36.azurewebsites.net']
 
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'static'),
+)
+
 
 # Application definition
 
