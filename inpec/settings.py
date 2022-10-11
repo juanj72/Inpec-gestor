@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['inpecgestorintento57.azurewebsites.net']
 
 STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'./static'),
 )
 
 
