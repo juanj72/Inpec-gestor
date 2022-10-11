@@ -25,7 +25,7 @@ SECRET_KEY = 'f$k)8^^_1$imc_3o+odt7&w#bq*u&6q57bc44+h6*c%&(r8n8m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['intento36.azurewebsites.net']
+ALLOWED_HOSTS = ['inpecgestorintento57.azurewebsites.net']
 
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static'),
