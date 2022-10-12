@@ -19,6 +19,8 @@ from django.urls import path
 from gestor import views
 from django.contrib.auth import views as auth_views
 from django.urls.conf import include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 
 urlpatterns = [
@@ -52,3 +54,5 @@ urlpatterns = [
     path('info_ppl/<nui>', views.info_ppl, name='info_ppl'),
 
 ]
+urlpatterns += staticfiles_urlpatterns()
+
