@@ -31,6 +31,7 @@ STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static'),
 )
 
+CSRF_TRUSTED_ORIGINS = ['https://inpecgestorintento57.azurewebsites.net']
 
 # Application definition
 
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'gestor',
     'corsheaders'
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
